@@ -1,0 +1,4 @@
+LOAD CSV "sales.csv" AS sales
+sales -> filter revenue > 1000
+plot sales type "bar" x "region" y "revenue" title "Revenue by Region"
+plot sales type "line" x "date" y "revenue" title "Revenue Over Time"

@@ -1,0 +1,5 @@
+LOAD CSV "sales.csv" AS sales
+sales -> select columns ["date" "region" "revenue"]
+sales -> filter revenue > 1000
+show sales -> head 5
+save sales as "filtered_sales.csv"

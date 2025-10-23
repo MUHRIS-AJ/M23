@@ -1,0 +1,6 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+requests
+difflib  # for typo-suggestions (built-in in Python)

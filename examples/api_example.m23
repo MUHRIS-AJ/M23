@@ -1,0 +1,4 @@
+data_api = fetch "https://api.example.com/sales" as json
+table_api = data_api -> to table
+show table_api -> head 5
+save table_api as "api_sales.csv"

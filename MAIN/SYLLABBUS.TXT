@@ -1,0 +1,42 @@
+6️⃣ Official M23 Guide / Syllabus
+
+Contents of docs/M23_Guide.pdf:
+
+Introduction to M23
+
+Installation & Setup
+
+Language Syntax
+
+Variables & Pipelines
+
+Commands Overview: CSV, Tables, Charts, SQL, API, ML
+
+Error Handling & Typo Tolerance
+
+Security & Sandbox Mode
+
+Step-by-Step Examples (CSV, Table, Chart, DB, API, ML)
+
+Recommended Syllabus (8-week learning plan)
+
+Mini Projects & Exercises
+
+7️⃣ How to Run Examples
+# Run a single M23 script
+python m23.py examples/csv_example.m23
+
+# Enable auto-fix for typo-tolerance
+python m23.py examples/ml_example.m23 --auto-fix
+
+
+✅ Result:
+You now have a full M23 release folder containing:
+
+Interpreter / runtime
+
+All major examples (CSV, table, chart, database, API, ML)
+
+Official PDF guide & syllabus
+
+Secure, typo-tolerant, English-like language

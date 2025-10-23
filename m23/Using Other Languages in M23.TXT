@@ -1,0 +1,178 @@
+1️⃣ Using Other Languages in M23
+A. Python (Core Language)
+
+M23 is already Python-based. You can call any Python library directly:
+
+# Load CSV using pandas
+LOAD CSV "sales.csv" AS sales
+
+# Use numpy for calculations
+import numpy as np
+mean_revenue = np.mean(sales["revenue"])
+print(mean_revenue)
+
+# ML with scikit-learn
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+X = sales[["size"]]
+y = sales["price"]
+model.fit(X, y)
+
+
+✅ Conclusion: Any Python library is automatically usable because M23 runs on Python.
+
+B. SQL (Database Queries)
+# Connect to database
+sql connect "postgres://user:password@localhost/salesdb" as db
+
+# Query database
+sales_db = sql "SELECT date, region, SUM(amount) as total FROM transactions" on db
+
+# Work with results in M23 (as table/DataFrame)
+show sales_db -> head 10
+
+
+SQL libraries used internally: psycopg2, sqlite3, or any DB API.
+
+C. JavaScript / TypeScript (Web / Frontend)
+
+M23 can export JSON to use in JS/TS or generate scripts:
+
+# Export table to JSON
+sales -> save as "sales.json"
+
+
+Then in JS/TS:
+
+// Load JSON and create chart
+fetch("sales.json")
+  .then(res => res.json())
+  .then(data => {
+      const chart = new Chart(ctx, { data: data });
+  });
+
+
+Future integration: M23 could include a command to run JS code via Node.js:
+
+run "node generate_chart.js"
+
+D. Rust (High Performance)
+
+Use Python-Rust bridge (PyO3 or maturin):
+
+# Example: Rust module called from Python
+import rustmodule
+result = rustmodule.compute_heavy(sales["revenue"])
+print(result)
+
+
+In M23: you just import and call the Rust functions like a normal Python library.
+
+E. C++ (Optional High Performance)
+
+Wrap C++ code with pybind11 or ctypes:
+
+import cppmodule
+total = cppmodule.calculate_total(sales["revenue"])
+print(total)
+
+
+Works exactly like Python libraries.
+
+F. R (Advanced Stats)
+
+Use rpy2 in Python:
+
+import rpy2.robjects as ro
+r = ro.r
+r('library(ggplot2)')
+r('data <- read.csv("sales.csv")')
+r('summary(data$revenue)')
+
+
+M23 syntax could be extended to wrap this nicely:
+
+r "library(ggplot2)"
+r "summary(data$revenue)"
+
+G. HTML / CSS (Reporting)
+
+M23 can generate HTML reports from DataFrames:
+
+sales -> save as "report.html"
+
+
+Include CSS templates for styling.
+
+2️⃣ Combining Multiple Languages in M23
+
+You can chain languages in a single M23 script using the pipeline and modular commands:
+
+# Load CSV
+LOAD CSV "sales.csv" AS sales
+
+# Filter in Python
+sales -> filter revenue > 1000
+
+# Export for JS frontend
+sales -> save as "sales.json"
+
+# Call Rust function for heavy computation
+import rustmodule
+total = rustmodule.compute_heavy(sales["revenue"])
+
+# Call SQL database
+sql connect "postgres://user:password@localhost/salesdb" as db
+sql "INSERT INTO totals (total) VALUES ({total})" on db
+
+# Call R for statistical summary
+r "summary(c({total}))"
+
+
+✅ This shows Python, Rust, SQL, R, JS (via JSON export) all in one workflow.
+
+3️⃣ Using Different Libraries for Each Language
+
+Python: pandas, numpy, scikit-learn, matplotlib
+
+Rust: Any compiled crate (via PyO3)
+
+C++: Any library exposed via pybind11
+
+SQL: psycopg2, sqlite3
+
+R: CRAN packages via rpy2
+
+JS/TS: D3.js, Chart.js, Node.js packages
+
+HTML/CSS: Templates for reports
+
+M23 Approach:
+
+# Choose the library per language
+import numpy as np      # Python
+import rustmodule       # Rust
+import cppmodule        # C++
+r "library(ggplot2)"   # R
+# Export to JSON for JS
+sales -> save as "sales.json"
+
+
+M23 acts as the unifying script language, keeping your workflow English-like and human-readable, while delegating computation to the appropriate language/library.
+
+4️⃣ Key Principles
+
+Python is the core runtime – every language integration happens via Python.
+
+Wrap other languages using Python bridges (rpy2, PyO3, pybind11).
+
+Pipelines (->) let you chain operations from multiple languages.
+
+Export / import data between languages using CSV, JSON, or tables.
+
+Keep M23 syntax English-like, so end-users rarely touch Python/other language syntax.
+
+
+
+
+

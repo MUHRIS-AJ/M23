@@ -1,0 +1,10 @@
+Date,Product,Region,UnitsSold,UnitPrice,Revenue
+2025-10-01,Laptop,North,10,1000,10000
+2025-10-02,Phone,South,25,500,12500
+2025-10-03,Tablet,East,15,750,11250
+2025-10-04,Laptop,West,8,1000,8000
+2025-10-05,Phone,North,30,500,15000
+2025-10-06,Tablet,South,20,750,15000
+2025-10-07,Laptop,East,12,1000,12000
+2025-10-08,Phone,West,28,500,14000
+2025-10-09,Tablet,North,18,750,13500

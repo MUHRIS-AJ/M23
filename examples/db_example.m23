@@ -1,0 +1,3 @@
+sql connect "postgres://user:password@localhost/salesdb" as db
+sales_db = sql "SELECT date, region, SUM(amount) as total FROM transactions WHERE date>'2025-01-01' GROUP BY date, region" on db
+show sales_db -> head 10

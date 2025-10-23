@@ -1,0 +1,14 @@
+M23/
+ ├─ m23.py           # Main interpreter / transpiler
+ ├─ runtime.py       # Runtime helpers (DataFrame, ML, plotting, secure utils)
+ ├─ examples/        # Example M23 scripts
+ │    ├─ csv_example.m23
+ │    ├─ table_example.m23
+ │    ├─ chart_example.m23
+ │    ├─ db_example.m23
+ │    ├─ api_example.m23
+ │    └─ ml_example.m23
+ ├─ docs/
+ │    └─ M23_Guide.pdf   # Official guide & syllabus with examples
+ └─ requirements.txt    # Required Python libraries
+

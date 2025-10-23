@@ -1,0 +1,7 @@
+LOAD CSV "house.csv" AS data
+X = data -> select columns ["size" "bedrooms"]
+y = data -> select columns ["price"]
+train model HouseModel = LinearRegression on X y
+metrics = HouseModel -> evaluate on X y
+show metrics
+save model HouseModel as "house_model.m23model"

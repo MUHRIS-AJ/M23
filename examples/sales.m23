@@ -1,0 +1,20 @@
+# Load the CSV file
+load csv "examples/sales.csv" as sales_data
+
+# Select specific columns
+select columns "Date", "Revenue", "Units_Sold"
+
+# Filter rows where Revenue > 500
+filter Revenue > 500
+
+# Show first 5 rows
+show head 5
+
+# Train a LinearRegression model on Revenue to predict Units_Sold
+train model revenue_model on Revenue Units_Sold
+
+# Plot Revenue vs Units_Sold
+plot type line x "Date" y "Revenue" title "Revenue Over Time"
+
+# Save the filtered data to a new CSV
+save as "examples/sales_filtered.csv"

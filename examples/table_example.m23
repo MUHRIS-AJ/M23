@@ -1,0 +1,9 @@
+let table = create table [
+    ["Name" "Age" "Salary"],
+    ["Alice" 30 5000],
+    ["Bob" 25 4000],
+    ["Charlie" 35 6000]
+]
+table -> select columns ["Name" "Salary"]
+summary = table -> summarize avg_salary = mean(Salary)
+show summary
