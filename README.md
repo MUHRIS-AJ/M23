@@ -38,7 +38,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/yourusername/m23.git
+git clone https://github.com/MUHRIS-AJ/M23.git
 cd m23
 
 
@@ -88,4 +88,5 @@ M23/
 License
 
 M23 is released under the MIT License. See the LICENSE file for details.
+
 
